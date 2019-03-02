@@ -5,9 +5,9 @@ window.onload = function() {
     var load = document.getElementById('loader');
     var body = document.body;
 
-    function validMail() {
+    function validMail(email) {
         var regularMail = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
-        var email = regularMail.test(mail.value);
+        var email = regularMail.test(email.value);
         if (email) {
             mailError.innerHTML = '';
             return true;
@@ -44,16 +44,16 @@ window.onload = function() {
         // var param = JSON.stringify(data);
         // xhr.responseType = 'json';
         xhr.open('POST', 'http://sw.ants.co.ua/demo/', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onload = function() {
             console.log(xhr);
             // do something with jsonResponse
         };
-        // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.send(data);
     };
 
     form.onsubmit = function() {
-        var email = validMail();
+        var email = validMail(mail);
         var phone = validPhone(phoneNumber);
         if (phone && email) {
             loader(true);
@@ -65,7 +65,8 @@ window.onload = function() {
             for (var i = 0; i < input.length; i++) {
                 data[input[i].name] = input[i].value;
             }
-            // sendData(data);
+            // var param = "checkCouponCode=0087-0220302018";
+            sendData(data);
         }
         return false;
     }

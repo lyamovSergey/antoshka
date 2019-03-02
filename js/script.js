@@ -27,8 +27,8 @@ window.onload = function() {
         return false;
     };
 
-    function loader(test) {
-        if (test) {
+    function loader(loadeProcess) {
+        if (loadeProcess) {
             load.style = 'display: block';
             body.classList.add("stop-scrolling");
 

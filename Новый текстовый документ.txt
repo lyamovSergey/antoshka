@@ -25,4 +25,9 @@
 “http://sw.ants.co.ua/demo/” с параметром activate и couponcode с этим же номером. А затем выводим сообщение пользователю об успешной регистрации
 Если же Exist будет равно 0 выводим сообщение об ошибке.
 
-Страницу с подключенным скриптом поместите в zip архив и вышлите hr службе. 
+Страницу с подключенным скриптом поместите в zip архив и вышлите hr службе.
+
+
+
+
+https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi 

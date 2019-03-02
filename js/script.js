@@ -49,6 +49,7 @@ window.onload = function() {
             console.log(xhr);
             // do something with jsonResponse
         };
+        console.log("data", data);
         xhr.send(data);
     };
 
@@ -61,11 +62,14 @@ window.onload = function() {
                 loader(false);
             }, 3000);
             var input = document.getElementsByClassName('inp');
-            var data = {};
+            var data = '';
             for (var i = 0; i < input.length; i++) {
-                data[input[i].name] = input[i].value;
+                data += input[i].name + '=' + encodeURIComponent(input[i].value) + '&';
             }
-            // var param = "checkCouponCode=0087-0220302018";
+            // var param = JSON.stringify(data);
+            console.log(typeof param);
+            var param = encodeURIComponent("couponcode=0087-0220302018&name=111&mail=asd@gmail.com&phoneNumber=1111111111&lastName=asd");
+
             sendData(data);
         }
         return false;

@@ -72,6 +72,17 @@ li {
     }
 }
 
+input {
+    outline: none;
+    border: 1px solid #dcdcdc;
+    height: 50px;
+    padding: 0 10px;
+    width: 70%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
 #offer__form {
     .flex;
     .flex-wrap;
@@ -79,16 +90,6 @@ li {
     padding: 10px;
     width: 40%;
 
-    input {
-        outline: none;
-        border: 1px solid #dcdcdc;
-        height: 50px;
-        padding: 0 10px;
-        width: 70%;
-        border-radius: 15px;
-        margin-bottom: 20px;
-        font-size: 16px;
-    }
 
     input[type=submit] {
         width: 60%;
@@ -109,18 +110,33 @@ li {
     line-height: 2em;
 }
 
-#phoneError {
-    position: absolute;
-    height: 15px;
-    font-size: 12px;
-    top: 34%;
-    color: red;
+.inp_wrapper {
+    position: relative;
+    width: 70%;
+
+    input {
+        width: 100%;
+    }
+
+    div {
+        position: absolute;
+        height: 15px;
+        font-size: 12px;
+        top: -15px;
+        color: red;
+    }
 }
 
-#mailError {
+#loader {
     position: absolute;
-    height: 15px;
-    font-size: 12px;
-    top: 47%;
-    color: red;
+    height: 100%;
+    width: 100%;
+    opacity: .5;
+    z-index: 100;
+    background: url(../img/loader.gif) no-repeat center center rgba(255, 255, 255, 1);
+
+}
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
 }

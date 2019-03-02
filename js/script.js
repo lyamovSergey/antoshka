@@ -1,8 +1,9 @@
 window.onload = function() {
-    var couponcode = document.getElementById('couponcode');
     var phoneNumber = document.getElementById('phone');
     var mail = document.getElementById('mail');
     var form = document.getElementById('offer__form');
+    var load = document.getElementById('loader');
+    var body = document.body;
 
     function validMail() {
         var regularMail = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
@@ -15,9 +16,9 @@ window.onload = function() {
         return false;
     };
 
-    function validPhone() {
+    function validPhone(num) {
         var regularPhone = /^[\d]{10}$/;
-        var phone = regularPhone.test(phoneNumber.value);
+        var phone = regularPhone.test(num.value);
         if (phone) {
             phoneError.innerHTML = "";
             return true;
@@ -26,31 +27,47 @@ window.onload = function() {
         return false;
     };
 
+    function loader(test) {
+        if (test) {
+            load.style = 'display: block';
+            body.classList.add("stop-scrolling");
+
+        } else {
+            load.style = 'display: none';
+            body.classList.remove("stop-scrolling");
+        }
+
+    }
+
     function sendData(data) {
         var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
+        // var param = JSON.stringify(data);
+        // xhr.responseType = 'json';
         xhr.open('POST', 'http://sw.ants.co.ua/demo/', true);
+        xhr.onload = function() {
+            console.log(xhr);
+            // do something with jsonResponse
+        };
         // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      
-
-
         xhr.send(data);
-        console.log(xhr);
     };
 
     form.onsubmit = function() {
-        var phone = validMail();
-        var email = validPhone();
+        var email = validMail();
+        var phone = validPhone(phoneNumber);
         if (phone && email) {
+            loader(true);
+            var timer = setTimeout(function(){
+                loader(false);
+            }, 3000);
             var input = document.getElementsByClassName('inp');
             var data = {};
             for (var i = 0; i < input.length; i++) {
                 data[input[i].name] = input[i].value;
             }
-            sendData(data);
+            // sendData(data);
         }
         return false;
     }
-
 
 };

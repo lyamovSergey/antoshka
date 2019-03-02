@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="dist/style.main.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- <script src="minFiles/script.min.js"></script> -->
     <script src="js/script.js"></script>
     <title>Antoshka</title>
 </head>
 
 <body>
+    <div id="loader" style="display: none;"></div>
     <div class="container offer">
         <div class="offer__text">
             <p>
@@ -28,11 +28,15 @@
         <form action="" method="POST" id="offer__form">
             <input type="text" name="name" class="inp" placeholder="Введите Ваше имя">
             <input type="text" name="lastName" class="inp" placeholder="Введите Вашу фамилию">
-            <div id="phoneError"></div>
-            <input type="tel" name="phoneNumber" id="phone" class="inp" placeholder="Введите Ваш номер телефона" required="">
-            <div id="mailError"></div>
-            <input type="text" name="mail" id="mail" class="inp" placeholder="Введите Ваш email" required="">
-            <input type="text" name="couponcode" class="inp" placeholder="Введите Ваш код с чека">
+            <div class="inp_wrapper">
+                <div id="phoneError"></div>
+                <input type="tel" name="phoneNumber" id="phone" class="inp" placeholder="Введите Ваш номер телефона" required="">
+            </div>
+            <div class="inp_wrapper">
+                <div id="mailError"></div>
+                <input type="text" name="mail" id="mail" class="inp" placeholder="Введите Ваш email" required="">
+            </div>
+            <input type="text" name="checkCouponCode" class="inp" placeholder="Введите Ваш код с чека">
             <input type="submit" value="Зарегистрироваться">
         </form>
         <div class="offer__rezult">

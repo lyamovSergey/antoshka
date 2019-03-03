@@ -12,6 +12,10 @@
 
 <body>
     <div id="loader" style="display: none;"></div>
+    <div id="modal" style="display: none;">
+        <p id="modal__text">Регистрация прошла успешно!</p>
+        <button id="modal__button">ок</button>
+    </div>
     <div class="container offer">
         <div class="offer__text">
             <p>
@@ -26,17 +30,17 @@
             Подробнее: <a href="https://antoshka.ua/actions/offers/offline?gclid=CjwKCAiAqt7jBRAcEiwAof2uK9NKWXbUZwCL8Tz0mx3Bxz7y6fPgX2J3hR-5mJPiax_rZSAIjQ13wxoC1gYQAvD_BwE">https://antoshka.ua</a>
         </div>
         <form action="" method="POST" id="offer__form">
-            <input type="text" name="name" class="inp" placeholder="Введите Ваше имя">
-            <input type="text" name="lastName" class="inp" placeholder="Введите Вашу фамилию">
+            <input type="text" name="name" class="inp" placeholder="Ваше имя" required="">
+            <input type="text" name="lastName" class="inp" placeholder="Ваша фамилия" required="">
             <div class="inp_wrapper">
                 <div id="phoneError"></div>
-                <input type="tel" name="phoneNumber" id="phone" class="inp" placeholder="Введите Ваш номер телефона" required="">
+                <input type="tel" name="phoneNumber" id="phone" class="inp" placeholder="Ваш номер телефона" required="">
             </div>
             <div class="inp_wrapper">
                 <div id="mailError"></div>
-                <input type="text" name="mail" id="mail" class="inp" placeholder="Введите Ваш email" required="">
+                <input type="text" name="mail" id="mail" class="inp" placeholder="Ваш email" required="">
             </div>
-            <input type="text" name="couponcode" class="inp" placeholder="Введите Ваш код с чека">
+            <input type="text" name="couponcode" class="inp" placeholder="Ваш код с чека" required="">
             <div class="btn-wrapper">
                 <img src="img/JFbr5ZI.png" alt="" class="lumers">
                 <input type="submit" value="Зарегистрироваться">

@@ -73,6 +73,8 @@ window.onload = function() {
                 //if response == true -> run showMessage(true);...
             };
         };
+        //для кросс-доменного запроса расширение в chrome
+        //https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?utm_source=chrome-app-launcher-info-dialog
         xhr.send(data);
     };
     //form send
@@ -85,9 +87,13 @@ window.onload = function() {
                 showMessage(false);
             }, 3000);
             var data = '';
+            // var data = {};
             for (var i = 0; i < input.length; i++) {
                 data += input[i].name + '=' + encodeURIComponent(input[i].value) + '&';
+               // data[input[i].name] = encodeURIComponent(input[i].value) 
             }
+            // data = JSON.stringify(data);
+            // console.log(data);
             sendData(data);
         }
         return false;
